@@ -415,20 +415,7 @@ config_manager.add_custom_analyzer('rust', {
 
 ## 性能优化
 
-### 1. 缓存策略
-
-分析器支持结果缓存，避免重复分析相同文件：
-
-```python
-from analyzers.cache_manager import cache_result
-
-@cache_result(ttl=3600)  # 缓存1小时
-def analyze(self, file_path: Path) -> Dict[str, Any]:
-    # 分析逻辑
-    pass
-```
-
-### 2. 并行处理
+### 并行处理
 
 分析器管理器支持并行处理多个文件：
 
@@ -438,14 +425,4 @@ from analyzers.language_analyzer_manager import get_analyzer_manager
 manager = get_analyzer_manager()
 # 并行分析多个文件
 results = manager.analyze_files_parallel(file_paths)
-```
-
-### 3. 增量分析
-
-支持只分析修改过的文件：
-
-```python
-# 检查文件是否需要重新分析
-if not self._needs_reanalysis(file_path, last_modified):
-    return cached_result
 ```

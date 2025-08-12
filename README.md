@@ -1,8 +1,8 @@
-# 项目复杂度分析工具
+# code-complex-analysis
 
 ## 工具概述
 
-这是一个模块化的项目代码复杂度分析工具，专门针对多模块、多技术栈的复杂项目进行分析。工具采用插件化架构，支持多种编程语言，提供详细的复杂度分析、工作量估算和开发建议。
+这是一个通用的项目代码复杂度分析工具，专门针对多模块、多技术栈的复杂项目进行分析。工具采用插件化架构，支持多种编程语言，提供详细的复杂度分析、工作量估算和开发建议。
 
 ### 主要特点
 
@@ -79,7 +79,7 @@
 │   │   └── vue_analyzer.py       # Vue 分析器
 │   └── README.md                 # 分析器文档
 ├── config/                       # 配置文件目录
-│   ├── analyzer_config.yaml      # YAML 配置文件（推荐）
+│   ├── analyzer_config.yaml      # YAML 配置文件
 │   └── README.md                 # 配置说明文档
 ├── report/                       # HTML报告生成器模块
 │   ├── __init__.py               # 包初始化文件
@@ -95,7 +95,7 @@
 │   ├── gen_html_recommend.py     # 开发建议章节生成
 │   └── README.md                 # 报告生成器文档
 ├── proj_comp_analyzer.py         # 主程序入口
-├── gen_html_report.py            # HTML 报告生成器（旧版本）
+├── gen_html_report.py            # HTML 报告生成器
 ├── requirements.txt               # Python 依赖包
 └── README.md                     # 本文档
 ```
@@ -211,4 +211,4 @@ python gen_html_report.py analysis_report.json
 ---
 
 ## 扩展开发
-支持添加新语言支持，参考：[语言分析器文档](analyzers/language_analyzers/README.md)
+支持添加新语言支持，参考：[自定义语言分析器开发](analyzers/language_analyzers/README.md)

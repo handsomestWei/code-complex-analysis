@@ -1,6 +1,6 @@
 # HTML报告生成器模块化架构
 
-本目录包含HTML报告生成器，按功能模块进行了拆分。
+本目录包含HTML报告生成器，按功能模块进行拆分。
 
 ## 文件结构
 
@@ -103,7 +103,7 @@ ModuleGenerator (主模块)
 
 ### 从项目根目录调用
 ```bash
-python gen_html_report_new.py analysis_report.json
+python gen_html_report.py analysis_report.json
 ```
 
 ### 从report目录调用
@@ -127,20 +127,3 @@ from report.gen_html_module import ModuleGenerator
 module_generator = ModuleGenerator(data, language_manager, config)
 module_table = module_generator.generate_module_table()
 ```
-
-## 优势
-
-1. **模块化**: 每个功能独立，便于维护和扩展
-2. **分层架构**: 模块分析采用分层设计，职责清晰
-3. **可重用**: 各个模块可以独立使用
-4. **清晰**: 代码结构清晰，职责分明
-5. **易维护**: 修改某个功能只需修改对应模块
-6. **可测试**: 每个模块可以独立测试
-7. **可扩展**: 新增功能只需添加新的子模块
-
-## 注意事项
-
-- 所有模块都支持动态语言插件系统
-- 模块间通过统一的数据接口进行通信
-- 保持了原有的功能和兼容性
-- 模块分析子模块采用依赖注入模式，便于测试和扩展
