@@ -1,0 +1,196 @@
+# 项目复杂度分析器配置文件
+# 支持注释的 YAML 格式，便于理解和维护
+
+# 启用的分析器列表 - 指定要使用的语言分析器
+enabled_analyzers:
+  - java        # Java语言分析器
+  - typescript  # TypeScript语言分析器
+  - javascript  # JavaScript语言分析器
+  - python      # Python语言分析器
+  - sql         # SQL语言分析器
+  - vue         # Vue框架分析器
+
+# 最大文件大小限制（字节）- 超过此大小的文件将被跳过分析
+max_file_size: 10485760  # 10MB
+
+# 跳过模式列表 - 符合这些模式的文件或目录将被忽略
+skip_patterns:
+  - "*.log"           # 日志文件
+  - "*.tmp"           # 临时文件
+  - "*.cache"         # 缓存文件
+  - "*.min.js"        # 压缩的JavaScript文件
+  - "*.min.css"       # 压缩的CSS文件
+  - "node_modules"    # Node.js依赖目录
+  - ".git"            # Git版本控制目录
+  - ".svn"            # SVN版本控制目录
+  - ".hg"             # Mercurial版本控制目录
+  - "__pycache__"     # Python缓存目录
+  - "target"          # Maven构建输出目录
+  - "build"           # 构建输出目录
+  - "dist"            # 分发输出目录
+  - "out"             # 输出目录
+  - "bin"             # 二进制文件目录
+  - "obj"             # 对象文件目录
+  - "*.md"            # Markdown文件
+  - "*.txt"           # 文本文件
+  - "*.csv"           # CSV文件
+  - "*.json"          # JSON文件
+  - "*.xml"           # XML文件
+  - "*.yaml"          # YAML文件
+  - "*.yml"           # YAML文件
+  - "*.properties"    # 属性文件
+  - "*.ini"           # INI文件
+  - "*.conf"          # 配置文件
+  - "*.config"        # 配置文件
+  - "*.settings"      # 设置文件
+  - "*.prefs"         # 首选项文件
+  - "doc"             # 文档目录
+  - "docs"            # 文档目录
+  - "*.png"           # 图片文件
+  - "*.jpg"           # 图片文件
+  - "*.jpeg"          # 图片文件
+  - "*.gif"           # 图片文件
+  - "*.bmp"           # 图片文件
+  - "*.webp"          # 图片文件
+  - "*.svg"           # 图片文件
+
+# 并行处理配置 - 控制多线程分析行为
+parallel_processing:
+  max_workers: 4    # 最大工作线程数
+  chunk_size: 100   # 每个线程处理的文件块大小
+  enabled: true     # 是否启用并行处理
+
+
+
+# 输出配置 - 控制分析结果的输出格式和内容
+output:
+  format: "json"           # 输出格式（json/html）
+  include_details: true    # 是否包含详细信息
+  include_statistics: true # 是否包含统计信息
+
+# 复杂度阈值配置 - 定义不同复杂度级别的阈值
+complexity_thresholds:
+  LOW: 100        # 低复杂度阈值
+  MEDIUM: 500     # 中等复杂度阈值
+  HIGH: 1000      # 高复杂度阈值
+  VERY_HIGH: 2000 # 极高复杂度阈值
+
+# 代码行数阈值 - 定义不同规模项目的行数阈值
+line_thresholds:
+  MICRO: 1000      # 微型项目（1K行以下）
+  SMALL: 5000      # 小型项目（5K行以下）
+  MEDIUM: 20000    # 中型项目（20K行以下）
+  LARGE: 50000     # 大型项目（50K行以下）
+  VERY_LARGE: 100000 # 超大型项目（100K行以下）
+
+# 文件数量阈值 - 定义不同规模项目的文件数量阈值
+file_thresholds:
+  FEW: 20         # 少量文件（20个以下）
+  SOME: 50        # 一些文件（50个以下）
+  MANY: 100       # 许多文件（100个以下）
+  LOTS: 200       # 大量文件（200个以下）
+  MANY_LOTS: 500  # 极多文件（500个以下）
+
+# 数据库表数量阈值 - 定义不同复杂度数据库的表数量阈值
+table_thresholds:
+  SIMPLE: 5        # 简单数据库（5个表以下）
+  BASIC: 10        # 基础数据库（10个表以下）
+  MEDIUM: 20       # 中等数据库（20个表以下）
+  COMPLEX: 50      # 复杂数据库（50个表以下）
+  VERY_COMPLEX: 100 # 极复杂数据库（100个表以下）
+
+# 模块数量阈值 - 定义不同规模项目的模块数量阈值
+module_thresholds:
+  SINGLE: 1        # 单模块项目
+  FEW: 2           # 少量模块（2个以下）
+  SOME: 5          # 一些模块（5个以下）
+  MANY: 10         # 许多模块（10个以下）
+  LOTS: 15         # 大量模块（15个以下）
+
+# 技术栈多样性阈值 - 定义不同多样性级别的技术栈数量阈值
+tech_diversity_thresholds:
+  LOW: 2           # 低多样性（2种技术以下）
+  MEDIUM: 3        # 中等多样性（3种技术以下）
+  HIGH: 4          # 高多样性（4种技术以下）
+  VERY_HIGH: 5     # 极高多样性（5种技术以上）
+
+# 工作量基础值配置 - 定义不同规模模块的工作量估算基础值（人天）
+effort_base_values:
+  SMALL_MODULE:           # 小型模块
+    BACKEND: 2.0          # 后端开发工作量
+    FRONTEND: 1.5         # 前端开发工作量
+  MEDIUM_MODULE:          # 中型模块
+    BACKEND: 6.0          # 后端开发工作量
+    FRONTEND: 4.5         # 前端开发工作量
+  LARGE_MODULE:           # 大型模块
+    BACKEND: 12.0         # 后端开发工作量
+    FRONTEND: 9.0         # 前端开发工作量
+
+# 因子限制配置 - 定义工作量估算中各种因子的最大值
+factor_limits:
+  COMPLEXITY: 4.0      # 复杂度因子最大值
+  UNDERSTANDING: 3.0   # 理解难度因子最大值
+  INTEGRATION: 2.5     # 集成难度因子最大值
+
+# 技术栈分类配置 - 将不同文件类型按技术栈分类
+tech_stack_categories:
+  backend:              # 后端技术栈
+    - java              # Java
+    - xml               # XML配置文件
+    - properties        # 属性文件
+    - sql               # SQL脚本
+    - sh                # Shell脚本
+    - python            # Python脚本
+  frontend:             # 前端技术栈
+    - typescript        # TypeScript
+    - javascript        # JavaScript
+    - vue               # Vue组件
+    - scss              # SCSS样式
+    - css               # CSS样式
+    - html              # HTML模板
+  mobile:               # 移动端技术栈
+    - vue               # Vue移动端
+    - javascript        # JavaScript
+    - json              # JSON配置
+  config:               # 配置文件类型
+    - yaml              # YAML配置
+    - json              # JSON配置
+    - xml               # XML配置
+    - properties        # 属性配置
+  docs:                 # 文档类型
+    - markdown          # Markdown文档
+    - html              # HTML文档
+
+# 语言生产力比率配置 - 定义不同编程语言的生产力系数（相对于Java）
+language_productivity_rates:
+  java: 100         # Java基准值
+  python: 120       # Python生产力较高
+  sql: 50           # SQL生产力较低
+  typescript: 80    # TypeScript生产力中等
+  javascript: 80    # JavaScript生产力中等
+  vue: 60           # Vue框架生产力较低
+
+# 日志配置 - 控制日志记录的行为
+logging_level: "INFO"                                    # 日志级别（DEBUG/INFO/WARNING/ERROR/CRITICAL）
+logging_format: "%(asctime)s - %(levelname)s - %(message)s" # 日志格式
+logging_file: null                                       # 日志文件路径（null表示只输出到控制台）
+
+# 分析超时和重试配置 - 控制分析过程的稳定性
+analysis_timeout: 300        # 分析超时时间（秒）
+max_retry_attempts: 3       # 最大重试次数
+
+# 性能监控配置 - 控制性能数据的收集
+performance_monitoring:
+  enabled: true            # 是否启用性能监控
+  collect_timing: true     # 是否收集时间统计
+  collect_memory: false    # 是否收集内存使用统计
+
+# 报告生成配置 - 控制分析报告的生成选项
+report_generation:
+  include_charts: true         # 是否包含图表
+  include_recommendations: true # 是否包含开发建议
+  include_risk_analysis: true  # 是否包含风险分析
+  chart_theme: "default"       # 图表主题
+
+# 自定义分析器配置 - 用于扩展和自定义分析器行为
+custom_analyzers: {}
